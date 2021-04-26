@@ -1,0 +1,38 @@
+#: tomcat端口server:
+server:
+  port: 8080
+#: 数据库访问配置
+spring:
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+      enabled: true
+  aop:
+    proxy-target-class: true
+    auto: true
+  mvc:
+    static-path-pattern: /*
+  thymeleaf:
+    prefix: classpath:/templates/
+#   mybatis 相关配置
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.java.bean
+  #xml和configyration只能选择其一种
+  config-location: classpath:mybatis-config.xml
+  #configuration:
+    #map返回值自动变为驼峰式
+    #map-underscore-to-camel-case: true
+    #打印sql语句
+    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+shiro:
+  redisOpen: false  # 是否开启redis缓存  true开启   false关闭
+  shiroRedis: false # true表示shiro session存到redis里，需要开启redis，才会生效【分布式场景】
+  sessionTimeOut: 18000000 #毫秒
+#  swagger
+swagger:
+  show: true
+
