@@ -78,6 +78,8 @@
         <zookeeper-version>3.6.2</zookeeper-version>
         <!--连接zk-->
         <zkc-version>0.10</zkc-version>
+        <!--权限认证框架sa-token-->
+        <sa-token-verison>1.19.0</sa-token-verison>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -387,13 +389,20 @@
                 <artifactId>zkclient</artifactId>
                 <version>${zkc-version}</version>
             </dependency>
+            <!-- Sa-Token 权限认证, 在线文档：http://sa-token.dev33.cn/ -->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-spring-boot-starter</artifactId>
+                <version>${sa-token-verison}</version>
+            </dependency>
+
         </dependencies>
 
 
     </dependencyManagement>
 
     <modules>
-        <!--<module>springbootdemo1</module>-->
+        <module>springbootdemo1</module>
         <module>springboot-rocketmq</module>
         <module>springboot-rocketmq-producer</module>
         <module>springboot-rocketmq-consumer</module>
@@ -401,5 +410,6 @@
         <module>springboot-dubbo-provider</module>
         <module>springboot-dubbo-interface</module>
         <module>springboot-dubbo-consumer</module>
+        <module>springboot-sa-token</module>
     </modules>
 </project>
