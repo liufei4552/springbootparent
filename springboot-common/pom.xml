@@ -29,7 +29,12 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
         </dependency>
-
+        <!-- 引入aop切面支持 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+            <version>${springboot-version}</version>
+        </dependency>
     </dependencies>
     <artifactId>springboot-common</artifactId>
 
