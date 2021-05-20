@@ -9,28 +9,43 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.java</groupId>
     <artifactId>springboot-sa-token</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>springboot-sa-token</name>
-    <description>Demo project for Spring Boot</description>
     <dependencies>
-        <!--添加web启动依赖-->
+        <!--支持全栈式Web开发，包括Tomcat和spring-webmvc-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${springboot-version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
+            <optional>true</optional>
         </dependency>
+        <!--单元测试所需-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <version>${springboot-version}</version>
             <scope>test</scope>
+        </dependency>
+        <!--使用注解打印日志时需要也就是lombok需要依赖此包-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.25</version>
+        </dependency>
+        <!-- sa-token 权限认证, 在线文档：http://sa-token.dev33.cn/ -->
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-spring-boot-starter</artifactId>
+            <version>${sa-token-verison}</version>
         </dependency>
         <!--引入common-->
         <dependency>
@@ -38,27 +53,31 @@
             <artifactId>springboot-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!-- Sa-Token 权限认证, 在线文档：http://sa-token.dev33.cn/ -->
+        <!--热更新所需devtools会监听classpath下的文件变动-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <version>${springboot-version}</version>
+            <optional>true</optional>
+        </dependency>
+        <!-- sa-token整合redis (使用jdk默认序列化方式) -->
         <!--<dependency>
             <groupId>cn.dev33</groupId>
-            <artifactId>sa-token-spring-boot-starter</artifactId>
-            <version>${sa-token-verison}</version>
+            <artifactId>sa-token-dao-redis</artifactId>
+            <version>${sa-token-redis-verison}</version>
         </dependency>-->
-        <!--开源项目hutool工具类集合-->
-        <!--<dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>${hutool-version}</version>
-        </dependency>-->
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-logging -->
-
+        <!-- sa-token整合redis (使用jackson序列化方式) -->
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-dao-redis-jackson</artifactId>
+            <version>${sa-token-redis-jackson-verison}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-pool2 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>${commons-pool2.version}</version>
+        </dependency>
     </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+
 </project>
