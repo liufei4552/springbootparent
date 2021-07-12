@@ -39,7 +39,7 @@
         <!--mybatis相关-->
         <mybatis.version>1.3.2</mybatis.version>
         <!--lombok-->
-        <lombok.version>1.16.20</lombok.version>
+        <lombok.version>1.18.20</lombok.version>
         <!--springfox-swagger2-->
         <springfox-swagger2.version>2.7.0</springfox-swagger2.version>
         <!--springfox-swagger2-ui-->
